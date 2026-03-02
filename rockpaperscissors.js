@@ -47,26 +47,26 @@ function playRound() {
             alert(`You both played ${choices[playerNum]}.\nTie!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
             break;
         
-        // if playerNum is less than cpuNum, and cpuNum is not 3 (scissors), then cpu beats player
+        // if playerNum is less than cpuNum, and cpuNum is not 2 (scissors), then cpu beats player
         case (playerNum < cpuNum && cpuNum - playerNum == 1):
             cpuScore += 1;
             alert(`You played ${choices[playerNum]}.\nComputer played ${choices[cpuNum]}.\nComputer wins!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
             break;
 
-        // if cpuNum is less than playerNum, and playerNum is not 3 (scissors), then player beats cpu
+        // if cpuNum is less than playerNum, and playerNum is not 2 (scissors), then player beats cpu
         case (cpuNum < playerNum && playerNum - cpuNum == 1):
             playerScore += 1
             alert(`You played ${choices[playerNum]}.\nComputer played ${choices[cpuNum]}.\nYou win!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
             break;
 
-        // if cpuNum is less than playerNum, and playerNum is 3 (scissors), then cpu beats player
+        // if cpuNum is less than playerNum, and playerNum is 2 (scissors), then cpu beats player
         // case strictly for rock vs scissors
         case (cpuNum < playerNum && playerNum - cpuNum == 2):
             cpuScore += 1;
             alert(`You played ${choices[playerNum]}.\nComputer played ${choices[cpuNum]}.\nComputer wins!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
             break;
         
-        // if playerNum is less than cpuNum, and cpuNum is 3 (scissors), then player beats cpu
+        // if playerNum is less than cpuNum, and cpuNum is 2 (scissors), then player beats cpu
         // case strictly for rock vs scissors
         case (playerNum < cpuNum && cpuNum - playerNum == 2):
             playerScore += 1;
