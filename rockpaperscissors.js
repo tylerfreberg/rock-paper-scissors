@@ -82,11 +82,11 @@ function playRound() {
         }
 
         else if(playAgain.toLowerCase() == 'n') {
-            alert("Thank you for playing! Goodbye.");
+            alert("Thank you for playing! Refresh to play again. Goodbye.");
         }
 
         else {
-            alert("Unexpected input. Ending game. Goodbye.");
+            alert("Unexpected input. Ending game. Refresh to play again. Goodbye.");
         }
     }
 }
