@@ -34,8 +34,8 @@ function getHumanChoice() {
 
 // plays a round of Rock, Paper, Scissors
 function playRound(num) {
-    let playerNum = num;
-    let cpuNum = getComputerChoice();
+    let playerNum = 0;
+    let cpuNum = 0;
     let choices = ["rock", "paper", "scissors"];
 
     let gameplan = document.querySelector("#gameplan")
@@ -82,7 +82,7 @@ function playRound(num) {
             alert(`You played ${choices[playerNum]}.\nComputer played ${choices[cpuNum]}.\nYou win!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
     }
 
-    if (playerScore == 3 || cpuScore == 3) {
+    if (playerScore == 5 || cpuScore == 5) {
         let playAgain = prompt(`Game Over! ${playerScore > cpuScore ? "You win!" : "You lose!"}\nYou: ${playerScore}\nCPU: ${cpuScore}\nPlay again? (Y/N)`);
         
         if(playAgain.toLowerCase() == 'y') {
