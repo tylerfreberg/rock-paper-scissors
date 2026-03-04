@@ -30,31 +30,6 @@ function playRound(num) {
 
     gameplan.innerText = "";
 
-    if (playerScore == 5) {
-        cpuScore = 0;
-        playerScore = 0;
-        let playerWin = document.createElement("h3");
-        let playAgain = document.createElement("p");
-        playerWin.textContent = `YOU WIN!`;
-        playAgain.textContent = "Choose below to play again.";
-
-        gameplan.appendChild(playerWin);
-        gameplan.appendChild(playAgain);
-        return;
-    }
-    if (cpuScore == 5) {
-        cpuScore = 0;
-        playerScore = 0;
-        let cpuWin = document.createElement("h3");
-        let playAgain = document.createElement("p");
-        cpuWin.textContent = `YOU WIN!`;
-        playAgain.textContent = "Choose below to play again.";
-
-        gameplan.appendChild(cpuWin);
-        gameplan.appendChild(playAgain);
-        return;
-    }
-
     // Using numbers for comparison instead of strings, as it amounts to less potential cases when you use a little math.
     switch (true) {
         // equal numbers means a tie
@@ -129,49 +104,41 @@ function playRound(num) {
             break;
     }
     
+    // check if either player has reached a winning score, and display a win banner if so
     if (playerScore == 5) {
         gameplan.innerText = "";
         cpuScore = 0;
         playerScore = 0;
-        let playerWin = document.createElement("h3");
+        let playerWin = document.createElement("p");
         let playAgain = document.createElement("p");
+        let congrats = document.createElement("p");
         playerWin.textContent = `YOU WIN!`;
         playAgain.textContent = "Choose below to play again.";
+        congrats.textContent = "Congratulations!"
 
         gameplan.appendChild(playerWin);
+        gameplan.appendChild(congrats);
         gameplan.appendChild(playAgain);
+        gameplan.appendChild(score);
         return;
     }
     if (cpuScore == 5) {
         gameplan.innerText = "";
         cpuScore = 0;
         playerScore = 0;
-        let cpuWin = document.createElement("h3");
+        let cpuWin = document.createElement("p");
         let playAgain = document.createElement("p");
-        cpuWin.textContent = `YOU WIN!`;
+        let sorry = document.createElement("p");
+        cpuWin.textContent = `CPU WINS :(`;
         playAgain.textContent = "Choose below to play again.";
+        sorry.textContent = "Better luck next time!"
 
         gameplan.appendChild(cpuWin);
+        gameplan.appendChild(sorry);
         gameplan.appendChild(playAgain);
+        gameplan.appendChild(score);
         return;
     }
-
-    // if (playerScore == 5 || cpuScore == 5) {
-    //     let playAgain = prompt(`Game Over! ${playerScore > cpuScore ? "You win!" : "You lose!"}\nYou: ${playerScore}\nCPU: ${cpuScore}\nPlay again? (Y/N)`);
-        
-    //     if(playAgain.toLowerCase() == 'y') {
-    //         playerScore = 0;
-    //         cpuScore = 0;
-    //     }
-
-    //     else if(playAgain.toLowerCase() == 'n') {
-    //         alert("Thank you for playing! Refresh to play again. Goodbye.");
-    //     }
-
-    //     else {
-    //         alert("Unexpected input. Ending game. Refresh to play again. Goodbye.");
-    //     }
-    // }
 }
 
 let playerScore = 0;
