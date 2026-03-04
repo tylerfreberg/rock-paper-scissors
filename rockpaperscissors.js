@@ -11,32 +11,30 @@ function getComputerChoice() {
 
 // returns a number based on player input. O = "Rock", 1 = "Paper", 2 = "Scissors".
 function getHumanChoice() {
-    let choice = prompt("Rock, Paper, Scissors, Shoot!");
+    let buttons = document.querySelectorAll("#buttoncontainer button");
 
-    // Convert to numbers as indicated next to the "play" variable
-    switch (true) {
-        case (choice == null || choice == ""):
-            alert("No answer given. Please try again.");
-            return(getHumanChoice())
+    buttons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            const id = event.target.id;
 
-        case (choice.toLowerCase() == "rock"):
-            return(0);
-
-        case (choice.toLowerCase() == "paper"):
-            return(1);
-
-        case (choice.toLowerCase() == "scissors"):
-            return(2);
-
-        default:
-            alert("Invalid answer. Please try again.");
-            return(getHumanChoice())
+            switch (id) {
+                case ("rock"):
+                    playRound(0);
+                    break;
+                case ("paper"):
+                    playRound(1);
+                    break;
+                case ("scissors"):
+                    playRound(2);
+                    break;
     }
+        })
+    })
 }
 
 // plays a round of Rock, Paper, Scissors
-function playRound() {
-    let playerNum = getHumanChoice();
+function playRound(num) {
+    let playerNum = num;
     let cpuNum = getComputerChoice();
     let choices = ["rock", "paper", "scissors"];
 
@@ -91,12 +89,10 @@ function playRound() {
     }
 }
 
-let playerScore = 0
-let cpuScore = 0
+let playerScore = 0;
+let cpuScore = 0;
 
-while (playerScore != 3 && cpuScore != 3) {
-    // "validchoice" checks if a valid answer was given or not. Otherwise, we alert the user that either an invalid answer or no answer was given and loop.
-    playRound();
- 
-}
+getHumanChoice();
+
+
 
