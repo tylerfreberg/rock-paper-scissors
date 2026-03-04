@@ -38,11 +38,22 @@ function playRound(num) {
     let cpuNum = getComputerChoice();
     let choices = ["rock", "paper", "scissors"];
 
+    let gameplan = document.querySelector("#gameplan")
+    let playerChoice = document.createElement("p");
+    let cpuChoice = document.createElement("p");
+    let winner = document.createElement("p");
+
     // Using numbers for comparison instead of strings, as it amounts to less potential cases when you use a little math.
     switch (true) {
         // equal numbers means a tie
         case (playerNum == cpuNum):
-            alert(`You both played ${choices[playerNum]}.\nTie!\nYou: ${playerScore}\nCPU: ${cpuScore}`);
+            playerChoice.textContent = `You played ${choices[playerNum]}.`
+            cpuChoice.textContent = `Computer played ${choices[cpuNum]}.`
+            winner.textContent = `It's a tie! No points given.`
+            
+            gameplan.appendChild(playerChoice)
+            gameplan.appendChild(cpuChoice)
+            gameplan.appendChild(winner)
             break;
         
         // if playerNum is less than cpuNum, and cpuNum is not 2 (scissors), then cpu beats player
