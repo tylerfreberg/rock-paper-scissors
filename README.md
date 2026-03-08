@@ -4,4 +4,4 @@ A simple rock, paper, scissors game built in javascript. This is an updated olde
 
 This game is played against a bot that chooses at random until either player gets 5 points.
 
-
+Live preview: http://tylerfreberg.github.io/rock-paper-scissors
